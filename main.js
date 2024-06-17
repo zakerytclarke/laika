@@ -8,6 +8,23 @@ let Engine = Matter.Engine,
 
 let keyState = {};  // Tracks the state of the arrow keys
 
+let ASSETS = {};
+
+// Load the image.
+function preload() {
+    const imageUrls = WORLD.flatMap(room => 
+        room.objects.filter(object => object.image).map(object => object.image)
+    );
+
+    
+    for(var i in imageUrls){
+        var imageUrl = imageUrls[i];
+
+        ASSETS[imageUrl] = loadImage(imageUrl);
+    }
+
+}
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     engine = Engine.create();
@@ -30,9 +47,14 @@ function loadRoomObjects() {
     WORLD[ROOM].objects.forEach(obj => {
         let options = {
             isStatic: !obj.moveable,
-            density: obj.gravity ? 0.001 : 0 // Apply gravity if needed
+            density: obj.gravity ? 0.001 : 0,
+            collisionFilter: {
+                category: 0x0002,
+                mask: obj.type === "block" ? 0xFFFFFFFF : 0 // Collide with all if 'block', none if 'asset'
+            }
         };
         let newObj = Bodies.rectangle(obj.x, obj.y, obj.width, obj.height, options);
+        newObj.image = obj.image; 
         objects.push(newObj); // Store the created bodies for rendering
         World.add(world, newObj);
     });
@@ -58,29 +80,35 @@ function draw() {
 
 function checkRoomChange() {
     let changed = false;
+
     if (box.position.x < 0) {
-        box.position.x = width;
-        changeRoom('left');
-        changed = true;
+        Matter.Body.setPosition(box, { x: width, y: box.position.y });
+        changed = "left";
     } else if (box.position.x > width) {
-        box.position.x = 0;
-        changeRoom('right');
-        changed = true;
-    }
-    if (box.position.y < 0) {
-        box.position.y = height;
-        changeRoom('up');
-        changed = true;
-    } else if (box.position.y > height) {
-        box.position.y = 0;
-        changeRoom('down');
-        changed = true;
+        Matter.Body.setPosition(box, { x: 0, y: box.position.y });
+        changed = "right";
     }
 
-    if (changed) {
-        loadRoomObjects(); // Reload room objects if room changed
+    if (box.position.y < 0) {
+        Matter.Body.setPosition(box, { x: box.position.x, y: height });
+        changed = "up";
+    } else if (box.position.y > height) {
+        Matter.Body.setPosition(box, { x: box.position.x, y: 0 });
+        changed = "down";
     }
+
+
+    if(changed){
+        const newRoom = WORLD[ROOM].connections[changed];
+    
+        if(newRoom!=ROOM){
+            ROOM = newRoom;
+            loadRoomObjects();
+        }
+    }
+
 }
+
 
 function changeRoom(direction) {
     let newRoom = WORLD[ROOM].connections[direction];
@@ -117,6 +145,12 @@ function drawBody(body) {
     translate(body.position.x, body.position.y);
     rotate(body.angle);
     rectMode(CENTER);
+    imageMode(CENTER);
     rect(0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
+    if(body.image && ASSETS[body.image]){
+        image(ASSETS[body.image], 0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
+    }
+        
+    
     pop();
 }
