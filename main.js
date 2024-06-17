@@ -1,3 +1,8 @@
+const DEBUG = false;
+const NUMBER_COLUMNS = 32
+const NUMBER_ROWS = 18
+
+
 let ROOM = 0; // Index of the current room
 
 let Engine = Matter.Engine,
@@ -10,11 +15,32 @@ let keyState = {};  // Tracks the state of the arrow keys
 
 let ASSETS = {};
 
+function drawGrid() {
+    strokeWeight(1); // Set line thickness
+    stroke("red");
+  
+    // Draw vertical lines for each column
+    for (let i = 0; i <= NUMBER_COLUMNS; i++) {
+      const x = i * (windowWidth / NUMBER_COLUMNS);
+      line(x, 0, x, height);
+    }
+  
+    // Draw horizontal lines for each row
+    for (let i = 0; i <= NUMBER_ROWS; i++) {
+      const y = i * (windowHeight / NUMBER_ROWS);
+      line(0, y, width, y);
+    }
+  }
+
+  
 // Load the image.
 function preload() {
-    const imageUrls = WORLD.flatMap(room => 
-        room.objects.filter(object => object.image).map(object => object.image)
-    );
+    // const imageUrls = WORLD.flatMap(room => 
+    //     room.objects.filter(object => object.image).map(object => object.image)
+    // )+Object.values(TILES);
+
+    const imageUrls = Object.values(TILES);
+
 
     
     for(var i in imageUrls){
@@ -56,15 +82,28 @@ function loadRoomObjects() {
                 mask: obj.type === "block" ? 0xFFFFFFFF : 0 // Collide with all if 'block', none if 'asset'
             }
         };
-        let newObj = Bodies.rectangle(obj.x, obj.y, obj.width, obj.height, options);
+
+
+        let x = ((obj.x+8) * (windowWidth/NUMBER_COLUMNS))-(windowWidth/NUMBER_COLUMNS/2);
+        let y = obj.y * (windowHeight/NUMBER_ROWS);
+
+        let w = (obj.width) * (windowWidth/NUMBER_COLUMNS);
+        let h = (obj.height) * (windowHeight/NUMBER_ROWS);
+        
+        let newObj = Bodies.rectangle(x, y, w, h, options);
         newObj.image = obj.image; 
+        newObj.tiles = obj.tiles;
+        newObj.tileWidth = obj.width;
+        newObj.tileHeight = obj.height;
         objects.push(newObj); // Store the created bodies for rendering
         World.add(world, newObj);
+        
     });
 }
 
 function draw() {
     background(0);
+    text(ROOM, 50, 50);
     Engine.update(engine);
 
     // Apply continuous movement based on key state
@@ -79,6 +118,9 @@ function draw() {
     displayObjects(); // Display the player character and other objects
 
     checkRoomChange(); // Check if room needs to be changed based on boundary conditions
+    if(DEBUG){
+        drawGrid();
+    }
 }
 
 function checkRoomChange() {
@@ -149,12 +191,24 @@ function drawBody(body) {
     rotate(body.angle);
     rectMode(CENTER);
     imageMode(CENTER);
+
     if(body.image && ASSETS[body.image]){
         image(ASSETS[body.image], 0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
     }else{
         rect(0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
     }
-        
+
+    // rect(0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
+    imageMode(LEFT);
+    if(body.tiles){
+        for(var i=0;i<body.tileWidth;i++){
+            for(var j=0;j<body.tileHeight;j++){
+                let idx = j * body.tileWidth + i;
+
+                image(ASSETS[body.tiles[idx]], (i-7)*(windowWidth/NUMBER_COLUMNS), (j*(windowHeight/NUMBER_ROWS))-(windowHeight/NUMBER_ROWS/2) , (windowWidth/NUMBER_COLUMNS), (windowHeight/NUMBER_ROWS));
+            }   
+        }
+    }
     
     pop();
 }
