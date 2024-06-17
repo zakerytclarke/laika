@@ -27,6 +27,8 @@ const WORLD = [
             { type: "block", x: 100, y: 300, width: 1000, height: 20, moveable: false, gravity: false, image:"./assets/platform.png"  },
             
             { type: "block", x: 500, y: 800, width: 3000, height: 20, moveable: false, gravity: false, image:"./assets/platform.png"   },
+            
+            { type: "block", x: 300, y: 500, width: 3000, height: 20, moveable: false, gravity: false, image:"./assets/platform.png"   },
         ],
         connections:{
             up:2,
