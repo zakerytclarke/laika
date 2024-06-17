@@ -6,7 +6,7 @@ const WORLD = [
             { type: "asset", x: 200, y: 500, width: 100, height: 100, moveable: false, gravity: false, image: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Mars_-_August_30_2021_-_Flickr_-_Kevin_M._Gill.png"},
             { type: "block", x: 600, y: 0, width: 50, height: 50, moveable: true, gravity: true, image:"https://media.istockphoto.com/id/1249611748/vector/rocket-space-ship-launch.jpg?s=612x612&w=0&k=20&c=DMZ7gUIzBd34YjINjw_PKoLnos6Iq3VCqK3OYA-Uzsc="}, 
             { type: "block", x: 700, y: 0, width: 50, height: 50, moveable: true, gravity: true, image:"https://media.istockphoto.com/id/1249611748/vector/rocket-space-ship-launch.jpg?s=612x612&w=0&k=20&c=DMZ7gUIzBd34YjINjw_PKoLnos6Iq3VCqK3OYA-Uzsc=" }, 
-            { type: "block", x: 800, y: 0, width: 50, height: 50, moveable: true, gravity: true },
+            { type: "block", x: 800, y: 0, width: 50, height: 50, moveable: true, gravity: true, image:"https://static.wikia.nocookie.net/portalworldsgame/images/0/0f/Scifi_Crate_Pile.png" },
             { type: "block", x: 600, y: 500, width: 100, height: 20, moveable: false, gravity: false, image:"./assets/platform.png"  },
             { type: "block", x: 300, y: 700, width: 100, height: 20, moveable: false, gravity: false, image:"./assets/platform.png"  },
             { type: "block", x: 800, y: 500, width: 100, height: 20, moveable: false, gravity: false, image:"./assets/platform.png"  },
