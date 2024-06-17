@@ -65,17 +65,10 @@ const WORLD = [
         id: 1,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -140,17 +133,10 @@ const WORLD = [
         id: 3,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -216,17 +202,10 @@ const WORLD = [
         id: 5,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -292,17 +271,10 @@ const WORLD = [
         id: 7,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -368,17 +340,10 @@ const WORLD = [
         id: 9,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -444,17 +409,10 @@ const WORLD = [
         id: 11,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -520,17 +478,10 @@ const WORLD = [
         id: 13,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -595,17 +546,10 @@ const WORLD = [
         id: 15,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -671,17 +615,10 @@ const WORLD = [
         id: 17,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -747,17 +684,10 @@ const WORLD = [
         id: 19,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -823,17 +753,10 @@ const WORLD = [
         id: 21,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -899,17 +822,10 @@ const WORLD = [
         id: 23,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -976,17 +892,10 @@ const WORLD = [
         id: 25,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1052,17 +961,10 @@ const WORLD = [
         id: 27,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1128,17 +1030,10 @@ const WORLD = [
         id: 29,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1204,17 +1099,10 @@ const WORLD = [
         id: 31,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1280,17 +1168,10 @@ const WORLD = [
         id: 33,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1356,17 +1237,10 @@ const WORLD = [
         id: 35,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1432,17 +1306,10 @@ const WORLD = [
         id: 37,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1508,17 +1375,10 @@ const WORLD = [
         id: 39,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1584,17 +1444,10 @@ const WORLD = [
         id: 41,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1623,17 +1476,10 @@ const WORLD = [
         id: 42,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1661,17 +1507,10 @@ const WORLD = [
         id: 43,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
@@ -1699,17 +1538,10 @@ const WORLD = [
         id: 44,
         objects: [
             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+                type: "block", x: 0, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
