@@ -23,6 +23,8 @@ function preload() {
         ASSETS[imageUrl] = loadImage(imageUrl);
     }
 
+    ASSETS['./assets/player.png'] = loadImage('./assets/player.png');
+
 }
 
 function setup() {
@@ -33,6 +35,7 @@ function setup() {
 
     // Create player character as a box
     box = Bodies.rectangle(50, 50, 40, 40, { frictionAir: 0.05 });
+    box.image = './assets/player.png';
     Matter.Body.setInertia(box, Infinity);
     World.add(world, box);
 
@@ -146,9 +149,10 @@ function drawBody(body) {
     rotate(body.angle);
     rectMode(CENTER);
     imageMode(CENTER);
-    rect(0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
     if(body.image && ASSETS[body.image]){
         image(ASSETS[body.image], 0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
+    }else{
+        rect(0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
     }
         
     
