@@ -853,32 +853,135 @@ const WORLD = [
     {
         id: 24,
         objects: [
-             {
-                type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
+            {
+                type: "block", x: 8.5, y: 17, width: 32, height: 2, moveable: false, gravity: false,
                 tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"],  
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], 
                 ]
             },
             {
-                type: "block", x: 17, y: 17, width: 15, height: 2, moveable: false, gravity: false,
-                tiles: [
-                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], 
-                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
-                ]
-            },
-            {
-                type: "block", x: 0, y: 0, width: 15, height: 1, moveable: false, gravity: false,
+                type: "block", x: 0, y: 0.5, width: 15, height: 1, moveable: false, gravity: false,
                 tiles: [
                     TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
                 ]
             },
             {
-                type: "block", x: 17, y: 0, width: 15, height: 1, moveable: false, gravity: false,
+                type: "block", x: 17, y: 0.5, width: 15, height: 1, moveable: false, gravity: false,
                 tiles: [
                     TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
                 ]
             },
+
+            {
+                type: "block", x: -6, y: 12.5, width: 1, height: 7, moveable: false, gravity: false,
+                tiles: [
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"]
+                ]
+            },
+            {
+                type: "block", x: -6, y: 12.5, width: 1, height: 7, moveable: false, gravity: false,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+            
+ 
+
+            {
+                type: "asset", x: 1, y: 14.5, width: 1, height: 3, moveable: false, gravity: false,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+            {
+                type: "asset", x: 5, y: 14.5, width: 1, height: 3, moveable: false, gravity: false,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+            {
+                type: "block", x: 3, y: 13.5, width: 5, height: 1, moveable: false, gravity: false,
+                tiles: [
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"]
+                ]
+            },
+            {
+                type: "block", x: 3, y: 13.5, width: 5, height: 1, moveable: false, gravity: false,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+
+            {
+                type: "block", x: 16.5, y: 13.5, width: 4, height: 3, moveable: false, gravity: false,
+                tiles: [
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"]
+                ]
+            },
+            {
+                type: "block", x: 16.5, y: 13.5, width: 4, height: 3, moveable: false, gravity: false,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+
+            {
+                type: "asset", x: 15, y: 14, width: 1, height: 4, moveable: false, gravity: false,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+            {
+                type: "asset", x: 19, y: 14, width: 1, height: 4, moveable: false, gravity: false,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+
+
+            {
+                type: "block", x: 23, y: 13, width: 3, height: 6, moveable: false, gravity: false,
+                tiles: [
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"]
+                ]
+            },
+            {
+                type: "block", x: 23, y: 13, width: 3, height: 6, moveable: false, gravity: false,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["moon"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+
+            {
+                type: "block", x: 19, y: 13, width: 1, height: 4, moveable: false, gravity: false,
+                tiles: [
+                    TILES["moon"], TILES["moon"], TILES["moon"], TILES["moon"]
+                ]
+            },
+            {
+                type: "block", x: 19, y: 13, width: 1, height: 4, moveable: false, gravity: false,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+
+
+            {
+                type: "block", x: 10, y: 13, width: 2, height: 2, moveable: true, gravity: true,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+
+            {
+                type: "block", x: 16.5, y: 6, width: 2, height: 2, moveable: true, gravity: true,
+                tiles: [
+                    TILES["scaffold"], TILES["scaffold"], TILES["scaffold"], TILES["scaffold"]
+                ]
+            },
+
+           
 
         ],
         connections: {

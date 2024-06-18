@@ -1,7 +1,6 @@
 const DEBUG = false;
-const NUMBER_COLUMNS = 32
-const NUMBER_ROWS = 18
-
+const NUMBER_COLUMNS = 32;
+const NUMBER_ROWS = 18;
 
 let ROOM = 0; // Index of the current room
 
@@ -21,19 +20,17 @@ function drawGrid() {
   
     // Draw vertical lines for each column
     for (let i = 0; i <= NUMBER_COLUMNS; i++) {
-      const x = i * (windowWidth / NUMBER_COLUMNS);
-      line(x, 0, x, height);
+        const x = i * (windowWidth / NUMBER_COLUMNS);
+        line(x, 0, x, height);
     }
   
     // Draw horizontal lines for each row
     for (let i = 0; i <= NUMBER_ROWS; i++) {
-      const y = i * (windowHeight / NUMBER_ROWS);
-      line(0, y, width, y);
+        const y = i * (windowHeight / NUMBER_ROWS);
+        line(0, y, width, y);
     }
-  }
+}
 
-  
-// Load the image.
 function preload() {
     // const imageUrls = WORLD.flatMap(room => 
     //     room.objects.filter(object => object.image).map(object => object.image)
@@ -41,26 +38,22 @@ function preload() {
 
     const imageUrls = Object.values(TILES);
 
-
-    
-    for(var i in imageUrls){
+    for (var i in imageUrls) {
         var imageUrl = imageUrls[i];
-
         ASSETS[imageUrl] = loadImage(imageUrl);
     }
 
     ASSETS['./assets/player.png'] = loadImage('./assets/player.png');
-
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     engine = Engine.create();
     world = engine.world;
-    engine.world.gravity.y = 3;  // Set gravity strength (default is 1)
+    engine.world.gravity.y = 2.5;  // Set gravity strength (default is 1)
 
     // Create player character as a box
-    box = Bodies.rectangle(50, 50, 40, 40, { frictionAir: 0.05 });
+    box = Bodies.rectangle(50, 50, (windowWidth / NUMBER_COLUMNS), (windowHeight / NUMBER_ROWS), { frictionAir: 0.05 });
     box.image = './assets/player.png';
     Matter.Body.setInertia(box, Infinity);
     World.add(world, box);
@@ -77,27 +70,27 @@ function loadRoomObjects() {
         let options = {
             isStatic: !obj.moveable,
             density: obj.gravity ? 0.001 : 0,
+            frictionAir: 0.05,
             collisionFilter: {
                 category: 0x0002,
                 mask: obj.type === "block" ? 0xFFFFFFFF : 0 // Collide with all if 'block', none if 'asset'
             }
         };
 
+        let x = ((obj.x + 8) * (windowWidth / NUMBER_COLUMNS)) - (windowWidth / NUMBER_COLUMNS / 2);
+        let y = obj.y * (windowHeight / NUMBER_ROWS);
 
-        let x = ((obj.x+8) * (windowWidth/NUMBER_COLUMNS))-(windowWidth/NUMBER_COLUMNS/2);
-        let y = obj.y * (windowHeight/NUMBER_ROWS);
-
-        let w = (obj.width) * (windowWidth/NUMBER_COLUMNS);
-        let h = (obj.height) * (windowHeight/NUMBER_ROWS);
+        let w = (obj.width) * (windowWidth / NUMBER_COLUMNS);
+        let h = (obj.height) * (windowHeight / NUMBER_ROWS);
         
         let newObj = Bodies.rectangle(x, y, w, h, options);
+        Matter.Body.setInertia(newObj, Infinity);
         newObj.image = obj.image; 
         newObj.tiles = obj.tiles;
         newObj.tileWidth = obj.width;
         newObj.tileHeight = obj.height;
         objects.push(newObj); // Store the created bodies for rendering
         World.add(world, newObj);
-        
     });
 }
 
@@ -118,7 +111,7 @@ function draw() {
     displayObjects(); // Display the player character and other objects
 
     checkRoomChange(); // Check if room needs to be changed based on boundary conditions
-    if(DEBUG){
+    if (DEBUG) {
         drawGrid();
     }
 }
@@ -142,23 +135,12 @@ function checkRoomChange() {
         changed = "down";
     }
 
-
-    if(changed){
+    if (changed) {
         const newRoom = WORLD[ROOM].connections[changed];
-    
-        if(newRoom!=ROOM){
+        if (newRoom != ROOM) {
             ROOM = newRoom;
             loadRoomObjects();
         }
-    }
-
-}
-
-
-function changeRoom(direction) {
-    let newRoom = WORLD[ROOM].connections[direction];
-    if (newRoom !== undefined && newRoom !== 0) {
-        ROOM = newRoom;
     }
 }
 
@@ -172,7 +154,7 @@ function displayObjects() {
 function keyPressed() {
     keyState[keyCode] = true;
     if (keyCode === UP_ARROW && onGround()) {
-        Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.1 });
+        Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.25 });
     }
 }
 
@@ -192,21 +174,21 @@ function drawBody(body) {
     rectMode(CENTER);
     imageMode(CENTER);
 
-    if(body.image && ASSETS[body.image]){
+    if (body.image && ASSETS[body.image]) {
         image(ASSETS[body.image], 0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
-    }else{
-        rect(0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
+    } else {
+        // rect(0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
     }
 
-    // rect(0, 0, body.bounds.max.x - body.bounds.min.x, body.bounds.max.y - body.bounds.min.y);
-    imageMode(LEFT);
-    if(body.tiles){
-        for(var i=0;i<body.tileWidth;i++){
-            for(var j=0;j<body.tileHeight;j++){
+    // Draw tiles
+    if (body.tiles) {
+        for (let i = 0; i < body.tileWidth; i++) {
+            for (let j = 0; j < body.tileHeight; j++) {
                 let idx = j * body.tileWidth + i;
-
-                image(ASSETS[body.tiles[idx]], (i-7)*(windowWidth/NUMBER_COLUMNS), (j*(windowHeight/NUMBER_ROWS))-(windowHeight/NUMBER_ROWS/2) , (windowWidth/NUMBER_COLUMNS), (windowHeight/NUMBER_ROWS));
-            }   
+                let tileX = (i - body.tileWidth / 2 + 0.5) * (windowWidth / NUMBER_COLUMNS);
+                let tileY = (j - body.tileHeight / 2 + 0.5) * (windowHeight / NUMBER_ROWS);
+                image(ASSETS[body.tiles[idx]], tileX, tileY, windowWidth / NUMBER_COLUMNS, windowHeight / NUMBER_ROWS);
+            }
         }
     }
     
