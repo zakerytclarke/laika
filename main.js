@@ -103,7 +103,7 @@ function draw() {
     Engine.update(engine);
 
     // Apply continuous movement based on key state
-    let movementForce = 0.005;
+    let movementForce = 0.025;
     if (keyState[RIGHT_ARROW]) {
         Body.applyForce(box, box.position, { x: movementForce, y: 0 });
     }
@@ -157,7 +157,7 @@ function displayObjects() {
 function keyPressed() {
     keyState[keyCode] = true;
     if (keyCode === UP_ARROW && onGround()) {
-        Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.25 });
+        Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.55 });
     }
 }
 
