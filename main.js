@@ -2,7 +2,8 @@ const DEBUG = false;
 const NUMBER_COLUMNS = 32;
 const NUMBER_ROWS = 18;
 
-let FORCE_MULTIPLIER = 1;
+let HORIZONTAL_FORCE_MULTIPLIER = 1;
+let VERTICAL_FORCE_MULTIPLIER = 1;
 
 let ROOM = 0; // Index of the current room
 
@@ -49,15 +50,19 @@ function preload() {
 }
 
 function setup() {
-    FORCE_MULTIPLIER = Math.sqrt(Math.pow(windowWidth, 2) + Math.pow(windowHeight, 2))/765;
+    HORIZONTAL_FORCE_MULTIPLIER = windowWidth/1077;
+    VERTICAL_FORCE_MULTIPLIER = windowHeight/848;
+    console.log(HORIZONTAL_FORCE_MULTIPLIER);
+    console.log(VERTICAL_FORCE_MULTIPLIER)
+
 
     createCanvas(windowWidth, windowHeight);
     engine = Engine.create();
     world = engine.world;
-    engine.world.gravity.y = 2.5*FORCE_MULTIPLIER;  // Set gravity strength (default is 1)
+    engine.world.gravity.y = 2.5*VERTICAL_FORCE_MULTIPLIER;  // Set gravity strength (default is 1)
 
     // Create player character as a box
-    box = Bodies.rectangle(50, 50, (windowWidth / NUMBER_COLUMNS), (windowHeight / NUMBER_ROWS), { frictionAir: 0.05*FORCE_MULTIPLIER });
+    box = Bodies.rectangle(50, 50, (windowWidth / NUMBER_COLUMNS), (windowHeight / NUMBER_ROWS), { frictionAir: 0.05*HORIZONTAL_FORCE_MULTIPLIER });
     box.image = './assets/player.png';
     Matter.Body.setInertia(box, Infinity);
     World.add(world, box);
@@ -73,8 +78,8 @@ function loadRoomObjects() {
     WORLD[ROOM].objects.forEach(obj => {
         let options = {
             isStatic: !obj.moveable,
-            density: obj.gravity ? 0.001*FORCE_MULTIPLIER : 0,
-            frictionAir: 0.05*FORCE_MULTIPLIER,
+            density: obj.gravity ? 0.001*HORIZONTAL_FORCE_MULTIPLIER : 0,
+            frictionAir: 0.05*HORIZONTAL_FORCE_MULTIPLIER,
             collisionFilter: {
                 category: 0x0002,
                 mask: obj.type === "block" ? 0xFFFFFFFF : 0 // Collide with all if 'block', none if 'asset'
@@ -107,7 +112,7 @@ function draw() {
     Engine.update(engine);
 
     // Apply continuous movement based on key state
-    let movementForce = 0.02;
+    let movementForce = 0.015;
     if (keyState[RIGHT_ARROW]) {
         Body.applyForce(box, box.position, { x: movementForce, y: 0 });
     }
@@ -161,7 +166,7 @@ function displayObjects() {
 function keyPressed() {
     keyState[keyCode] = true;
     if (keyCode === UP_ARROW && onGround()) {
-        Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.15*FORCE_MULTIPLIER });
+        Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.25*VERTICAL_FORCE_MULTIPLIER });
     }
 }
 
