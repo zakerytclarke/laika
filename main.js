@@ -1,4 +1,4 @@
-const DEBUG = false;
+const DEBUG = true;
 const NUMBER_COLUMNS = 32;
 const NUMBER_ROWS = 18;
 
@@ -76,9 +76,12 @@ function loadRoomObjects() {
                 mask: obj.type === "block" ? 0xFFFFFFFF : 0 // Collide with all if 'block', none if 'asset'
             }
         };
+        // Every additional block in a direction add 0.5
+        let x = (((obj.x + 0.5*(obj.width)+0.5) * (windowWidth / NUMBER_COLUMNS)) - (windowWidth / NUMBER_COLUMNS / 2));
+        let y = ((obj.y + 0.5*(obj.height)) * (windowHeight / NUMBER_ROWS));
 
-        let x = ((obj.x + 8) * (windowWidth / NUMBER_COLUMNS)) - (windowWidth / NUMBER_COLUMNS / 2);
-        let y = obj.y * (windowHeight / NUMBER_ROWS);
+
+
 
         let w = (obj.width) * (windowWidth / NUMBER_COLUMNS);
         let h = (obj.height) * (windowHeight / NUMBER_ROWS);

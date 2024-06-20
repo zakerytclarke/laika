@@ -1,13 +1,31 @@
 const TILES = {
+    "debug": "./assets/player.png",
     "moon": "./assets/moonsurface.png",
-    "scaffold": "./assets/scaffold.png"
+    "scaffold": "./assets/scaffold.png",
 }
-
 
 const WORLD = [
     {
         id: 0,
         objects: [
+            {
+                type: "block", x: 0, y: 0, width: 1, height: 1, moveable: false, gravity: false,
+                tiles: [
+                    TILES["debug"]
+                ]
+            },
+            {
+                type: "block", x: 0, y: 0, width: 2, height: 1, moveable: false, gravity: false,
+                tiles: [
+                    TILES["debug"], TILES["debug"],
+                ]
+            },
+            {
+                type: "block", x: 0, y: 0, width: 1, height: 2, moveable: false, gravity: false,
+                tiles: [
+                    TILES["debug"], TILES["debug"],
+                ]
+            },
              {
                 type: "block", x: 0, y: 17, width: 15, height: 2, moveable: false, gravity: false,
                 tiles: [
