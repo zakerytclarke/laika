@@ -1,6 +1,7 @@
 const DEBUG = false;
 const NUMBER_COLUMNS = 32;
 const NUMBER_ROWS = 18;
+let LOADED = false;
 
 let HORIZONTAL_FORCE_MULTIPLIER = 1;
 let VERTICAL_FORCE_MULTIPLIER = 1;
@@ -20,13 +21,13 @@ let ASSETS = {};
 function drawGrid() {
     strokeWeight(1); // Set line thickness
     stroke("red");
-  
+
     // Draw vertical lines for each column
     for (let i = 0; i <= NUMBER_COLUMNS; i++) {
         const x = i * (windowWidth / NUMBER_COLUMNS);
         line(x, 0, x, height);
     }
-  
+
     // Draw horizontal lines for each row
     for (let i = 0; i <= NUMBER_ROWS; i++) {
         const y = i * (windowHeight / NUMBER_ROWS);
@@ -34,10 +35,108 @@ function drawGrid() {
     }
 }
 
-function preload() {
+async function readPixelsFromPNG(imageUrl) {
+    const img = new Image();
+    img.src = imageUrl;
+
+    try {
+        await img.decode(); // Wait for image decoding
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+
+        // Create 2D array to store hex codes
+        const pixelGrid = new Array(canvas.height).fill(null).map(() => new Array(canvas.width));
+
+        for (let y = 0; y < canvas.height; y++) {
+            for (let x = 0; x < canvas.width; x++) {
+                const i = (y * canvas.width + x) * 4; // Calculate index in flat array
+
+                // Get individual RGBA values
+                const red = data[i];
+                const green = data[i + 1];
+                const blue = data[i + 2];
+
+                // Convert RGB values to hex string (ensure two digit format)
+                const hex = "#" + (red.toString(16).padStart(2, "0")) + (green.toString(16).padStart(2, "0")) + (blue.toString(16).padStart(2, "0"));
+
+                pixelGrid[y][x] = hex;
+            }
+        }
+        return pixelGrid;
+    } catch (error) {
+        throw error; // Re-throw the error for handling
+    }
+}
+
+
+
+const COLOR_TO_OBJECT = {
+    // "#f69988":null
+    "#b4b4b4": TILES["moon"],
+    "#464646": TILES["scaffold"]
+}
+
+
+async function loadMap() {
+    const pixels = await readPixelsFromPNG("./maps/map.png");
+
+    const ROOM_OBJECTS = [];
+    const room_width = 33;
+    const room_height = 19;
+    for (let y = 0; y < pixels.length; y++) {
+        for (let x = 0; x < pixels[y].length; x++) {
+            const room_index_x = Math.floor(x / room_width);
+            const room_index_y = Math.floor(y / room_height);
+
+            const value = pixels[y][x];
+
+            // Calculate offset from room start
+            const offset_x = x % room_width;
+            const offset_y = y % room_height;
+
+            const room_index = room_index_y * room_width + room_index_x;
+
+            if (value !== "#000000") {
+                if (COLOR_TO_OBJECT[value]) {
+                    ROOM_OBJECTS[room_index] = (ROOM_OBJECTS[room_index] || []).concat([
+                        {
+                            type: "block",
+                            x: offset_x,
+                            y: offset_y,
+                            width: 1,
+                            height: 1,
+                            moveable: false,
+                            gravity: false,
+                            tiles: [COLOR_TO_OBJECT[value]],
+                        }
+                    ])
+
+                }
+            }
+        }
+    }
+
+    return ROOM_OBJECTS;
+}
+
+async function preload() {
+    let ROOM_OBJECTS = await loadMap();
     // const imageUrls = WORLD.flatMap(room => 
     //     room.objects.filter(object => object.image).map(object => object.image)
     // )+Object.values(TILES);
+
+    for (var i = 0; i < ROOM_OBJECTS.length; i++) {
+        if (ROOM_OBJECTS[i]) {
+            WORLD[i].objects = WORLD[i].objects.concat(ROOM_OBJECTS[i]);
+        }
+    }
 
     const imageUrls = Object.values(TILES);
 
@@ -47,22 +146,21 @@ function preload() {
     }
 
     ASSETS['./assets/player.png'] = loadImage('./assets/player.png');
+    LOADED = true;
 }
 
-function setup() {
-    HORIZONTAL_FORCE_MULTIPLIER = windowWidth/1077;
-    VERTICAL_FORCE_MULTIPLIER = windowHeight/848;
-    console.log(HORIZONTAL_FORCE_MULTIPLIER);
-    console.log(VERTICAL_FORCE_MULTIPLIER)
+async function setup() {
+    HORIZONTAL_FORCE_MULTIPLIER = 1;
+    VERTICAL_FORCE_MULTIPLIER = 1;
 
 
     createCanvas(windowWidth, windowHeight);
     engine = Engine.create();
     world = engine.world;
-    engine.world.gravity.y = 2.5*VERTICAL_FORCE_MULTIPLIER;  // Set gravity strength (default is 1)
+    engine.world.gravity.y = 2.5 * VERTICAL_FORCE_MULTIPLIER;  // Set gravity strength (default is 1)
 
     // Create player character as a box
-    box = Bodies.rectangle(50, 50, (windowWidth / NUMBER_COLUMNS), (windowHeight / NUMBER_ROWS), { frictionAir: 0.05*HORIZONTAL_FORCE_MULTIPLIER });
+    box = Bodies.rectangle(50, 50, (windowWidth / NUMBER_COLUMNS), (windowHeight / NUMBER_ROWS), { frictionAir: 0.05 * HORIZONTAL_FORCE_MULTIPLIER });
     box.image = './assets/player.png';
     Matter.Body.setInertia(box, Infinity);
     World.add(world, box);
@@ -78,26 +176,26 @@ function loadRoomObjects() {
     WORLD[ROOM].objects.forEach(obj => {
         let options = {
             isStatic: !obj.moveable,
-            density: obj.gravity ? 0.001*HORIZONTAL_FORCE_MULTIPLIER : 0,
-            frictionAir: 0.05*HORIZONTAL_FORCE_MULTIPLIER,
+            density: obj.gravity ? 0.001 * HORIZONTAL_FORCE_MULTIPLIER : 0,
+            frictionAir: 0.05 * HORIZONTAL_FORCE_MULTIPLIER,
             collisionFilter: {
                 category: 0x0002,
                 mask: obj.type === "block" ? 0xFFFFFFFF : 0 // Collide with all if 'block', none if 'asset'
             }
         };
         // Every additional block in a direction add 0.5
-        let x = (((obj.x + 0.5*(obj.width)+0.5) * (windowWidth / NUMBER_COLUMNS)) - (windowWidth / NUMBER_COLUMNS / 2));
-        let y = ((obj.y + 0.5*(obj.height)) * (windowHeight / NUMBER_ROWS));
+        let x = (((obj.x + 0.5 * (obj.width) + 0.5) * (windowWidth / NUMBER_COLUMNS)) - (windowWidth / NUMBER_COLUMNS / 2));
+        let y = ((obj.y + 0.5 * (obj.height)) * (windowHeight / NUMBER_ROWS));
 
 
 
 
         let w = (obj.width) * (windowWidth / NUMBER_COLUMNS);
         let h = (obj.height) * (windowHeight / NUMBER_ROWS);
-        
+
         let newObj = Bodies.rectangle(x, y, w, h, options);
         Matter.Body.setInertia(newObj, Infinity);
-        newObj.image = obj.image; 
+        newObj.image = obj.image;
         newObj.tiles = obj.tiles;
         newObj.tileWidth = obj.width;
         newObj.tileHeight = obj.height;
@@ -107,6 +205,9 @@ function loadRoomObjects() {
 }
 
 function draw() {
+    if (!LOADED) {
+        return;
+    }
     background(0);
     text(ROOM, 50, 50);
     Engine.update(engine);
@@ -128,6 +229,26 @@ function draw() {
     }
 }
 
+function nextRoomIndex(currentRoom, direction) {
+    const rows = 5;
+    const columns = 23;
+    const totalRooms = rows * columns;
+  
+    const movements = {
+      up: -columns,
+      down: columns,
+      left: (currentRoom - 1 + totalRooms) % totalRooms, // Wrap left using modulo
+      right: (currentRoom + 1) % totalRooms, // Wrap right using modulo
+    };
+  
+    const movement = movements[direction];
+  
+    let newIndex = (currentRoom + movement) % totalRooms; // Apply modulo after movement for all directions
+  
+    return newIndex;
+  }
+  
+  
 function checkRoomChange() {
     let changed = false;
 
@@ -149,6 +270,7 @@ function checkRoomChange() {
 
     if (changed) {
         const newRoom = WORLD[ROOM].connections[changed];
+        // const newRoom = nextRoomIndex(ROOM, changed);
         if (newRoom != ROOM) {
             ROOM = newRoom;
             loadRoomObjects();
@@ -166,7 +288,7 @@ function displayObjects() {
 function keyPressed() {
     keyState[keyCode] = true;
     if (keyCode === UP_ARROW && onGround()) {
-        Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.25*VERTICAL_FORCE_MULTIPLIER });
+        Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.25 * VERTICAL_FORCE_MULTIPLIER });
     }
 }
 
@@ -203,6 +325,6 @@ function drawBody(body) {
             }
         }
     }
-    
+
     pop();
 }
