@@ -104,9 +104,7 @@ async function loadMap() {
             const offset_y = y % room_height;
 
             const room_index = room_index_y * 24 + room_index_x;
-            if(room_index==35){
-                console.log(x, y);
-            }
+
             if (value !== "#000000") {
                 if (COLOR_TO_OBJECT[value]) {
                     ROOM_OBJECTS[room_index] = (ROOM_OBJECTS[room_index] || []).concat([
@@ -130,11 +128,9 @@ async function loadMap() {
     return ROOM_OBJECTS;
 }
 
-let debug_var;
-
 async function preload() {
     let ROOM_OBJECTS = await loadMap();
-    debug_var = ROOM_OBJECTS;
+
     // const imageUrls = WORLD.flatMap(room => 
     //     room.objects.filter(object => object.image).map(object => object.image)
     // )+Object.values(TILES);
@@ -153,6 +149,7 @@ async function preload() {
     }
 
     ASSETS['./assets/player.png'] = loadImage('./assets/player.png');
+    ASSETS['./maps/minimap.png'] = loadImage('./maps/minimap.png');
     LOADED = true;
 }
 
@@ -287,7 +284,12 @@ function checkRoomChange() {
 
     if (changed) {
         // const newRoom = WORLD[ROOM].connections[changed];
-        const newRoom = nextRoomIndex(ROOM, changed);
+
+        let newRoom = nextRoomIndex(ROOM, changed);
+        if(WORLD[ROOM].connections && WORLD[ROOM].connections[changed]){ // Overwrite default 
+            console.log(WORLD[ROOM].connections);
+            newRoom = WORLD[ROOM].connections[changed];
+        }
         if (newRoom != ROOM) {
             ROOM = newRoom;
             loadRoomObjects();
@@ -299,6 +301,8 @@ function displayObjects() {
     fill(255);
     drawBody(box);  // Player character
     objects.forEach(drawBody);  // Render stored bodies
+    //Render MiniMap
+    image(ASSETS['./maps/minimap.png'], windowWidth-300, 0, 300, 300);
     fill(128);
 }
 
