@@ -1,7 +1,9 @@
 const DEBUG = false;
 const NUMBER_COLUMNS = 32;
 const NUMBER_ROWS = 18;
+let SETUP = false;
 let LOADED = false;
+
 
 let HORIZONTAL_FORCE_MULTIPLIER = 1;
 let VERTICAL_FORCE_MULTIPLIER = 1;
@@ -101,8 +103,10 @@ async function loadMap() {
             const offset_x = x % room_width;
             const offset_y = y % room_height;
 
-            const room_index = room_index_y * room_width + room_index_x;
-
+            const room_index = room_index_y * 24 + room_index_x;
+            if(room_index==35){
+                console.log(x, y);
+            }
             if (value !== "#000000") {
                 if (COLOR_TO_OBJECT[value]) {
                     ROOM_OBJECTS[room_index] = (ROOM_OBJECTS[room_index] || []).concat([
@@ -126,8 +130,11 @@ async function loadMap() {
     return ROOM_OBJECTS;
 }
 
+let debug_var;
+
 async function preload() {
     let ROOM_OBJECTS = await loadMap();
+    debug_var = ROOM_OBJECTS;
     // const imageUrls = WORLD.flatMap(room => 
     //     room.objects.filter(object => object.image).map(object => object.image)
     // )+Object.values(TILES);
@@ -208,6 +215,10 @@ function draw() {
     if (!LOADED) {
         return;
     }
+    if(!SETUP){
+        setup();
+        SETUP = true;
+    }
     background(0);
     text(ROOM, 50, 50);
     Engine.update(engine);
@@ -229,24 +240,30 @@ function draw() {
     }
 }
 
-function nextRoomIndex(currentRoom, direction) {
+function nextRoomIndex(currentIndex, direction) {
     const rows = 5;
-    const columns = 23;
-    const totalRooms = rows * columns;
-  
-    const movements = {
-      up: -columns,
-      down: columns,
-      left: (currentRoom - 1 + totalRooms) % totalRooms, // Wrap left using modulo
-      right: (currentRoom + 1) % totalRooms, // Wrap right using modulo
-    };
-  
-    const movement = movements[direction];
-  
-    let newIndex = (currentRoom + movement) % totalRooms; // Apply modulo after movement for all directions
-  
-    return newIndex;
-  }
+    const columns = 24;
+    
+    let row = Math.floor(currentIndex / columns);
+    let col = currentIndex % columns;
+    
+    if (direction === "up") {
+        if (row > 0) {
+            return currentIndex - columns;
+        }
+    } else if (direction === "down") {
+        if (row < rows - 1) {
+            return currentIndex + columns;
+        }
+    } else if (direction === "left") {
+        return row * columns + (col - 1 + columns) % columns;
+    } else if (direction === "right") {
+        return row * columns + (col + 1) % columns;
+    }
+    
+    // Return the same index if no valid movement
+    return currentIndex;
+}
   
   
 function checkRoomChange() {
@@ -269,8 +286,8 @@ function checkRoomChange() {
     }
 
     if (changed) {
-        const newRoom = WORLD[ROOM].connections[changed];
-        // const newRoom = nextRoomIndex(ROOM, changed);
+        // const newRoom = WORLD[ROOM].connections[changed];
+        const newRoom = nextRoomIndex(ROOM, changed);
         if (newRoom != ROOM) {
             ROOM = newRoom;
             loadRoomObjects();

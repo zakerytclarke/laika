@@ -3,461 +3,126 @@ const TILES = {
     "moon": "./assets/moonsurface.png",
     "scaffold": "./assets/scaffold.png",
 }
-
 const WORLD = [
-    {
-        id: 0,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 24,
-            left: 23,
-            right: 1,
-        }
-    },
-    {
-        id: 1,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 0,
-            right: 2,
-        }
-    },
-    {
-        id: 2,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 26,
-            left: 1,
-            right: 3,
-        }
-    },
-    {
-        id: 3,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 2,
-            right: 4,
-        }
-    },
-    {
-        id: 4,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 26,
-            left: 3,
-            right: 5,
-        }
-    },
-    {
-        id: 5,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 4,
-            right: 6,
-        }
-    },
-    {
-        id: 6,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 27,
-            left: 5,
-            right: 7,
-        }
-    },
-    {
-        id: 7,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 6,
-            right: 8,
-        }
-    },
-    {
-        id: 8,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 28,
-            left: 7,
-            right: 9,
-        }
-    },
-    {
-        id: 9,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 8,
-            right: 10,
-        }
-    },
-    {
-        id: 10,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 29,
-            left: 9,
-            right: 11,
-        }
-    },
-    {
-        id: 11,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 10,
-            right: 12,
-        }
-    },
-    {
-        id: 12,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 30,
-            left: 11,
-            right: 13,
-        }
-    },
-    {
-        id: 13,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 12,
-            right: 14,
-        }
-    },
-    {
-        id: 14,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 31,
-            left: 13,
-            right: 15,
-        }
-    },
-    {
-        id: 15,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 14,
-            right: 16,
-        }
-    },
-    {
-        id: 16,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 32,
-            left: 15,
-            right: 17,
-        }
-    },
-    {
-        id: 17,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 16,
-            right: 18,
-        }
-    },
-    {
-        id: 18,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 33,
-            left: 17,
-            right: 19,
-        }
-    },
-    {
-        id: 19,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 18,
-            right: 20,
-        }
-    },
-    {
-        id: 20,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 34,
-            left: 19,
-            right: 21,
-        }
-    },
-    {
-        id: 21,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 20,
-            right: 22,
-        }
-    },
-    {
-        id: 22,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 35,
-            left: 21,
-            right: 23,
-        }
-    },
-    {
-        id: 23,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 0,
-            left: 22,
-            right: 0,
-        }
-    },
-
-    {
-        id: 24,
-        objects:[],
-        connections: {
-            up: 0,
-            down: 36,
-            left: 35,
-            right: 25,
-        }
-    },
-    {
-        id: 25,
-        objects:[],
-        connections: {
-            up: 2,
-            down: 0,
-            left: 24,
-            right: 26,
-        }
-    },
-    {
-        id: 26,
-        objects:[],
-        connections: {
-            up: 4,
-            down: 37,
-            left: 25,
-            right: 27,
-        }
-    },
-    {
-        id: 27,
-        objects:[],
-        connections: {
-            up: 6,
-            down: 0,
-            left: 26,
-            right: 28,
-        }
-    },
-    {
-        id: 28,
-        objects:[],
-        connections: {
-            up: 8,
-            down: 38,
-            left: 27,
-            right: 29,
-        }
-    },
-    {
-        id: 29,
-        objects:[],
-        connections: {
-            up: 10,
-            down: 0,
-            left: 28,
-            right: 30,
-        }
-    },
-    {
-        id: 30,
-        objects:[],
-        connections: {
-            up: 12,
-            down: 39,
-            left: 29,
-            right: 31,
-        }
-    },
-    {
-        id: 31,
-        objects:[],
-        connections: {
-            up: 14,
-            down: 0,
-            left: 30,
-            right: 32,
-        }
-    },
-    {
-        id: 32,
-        objects:[],
-        connections: {
-            up: 16,
-            down: 40,
-            left: 31,
-            right: 33,
-        }
-    },
-    {
-        id: 33,
-        objects:[],
-        connections: {
-            up: 18,
-            down: 0,
-            left: 32,
-            right: 34,
-        }
-    },
-    {
-        id: 34,
-        objects:[],
-        connections: {
-            up: 20,
-            down: 41,
-            left: 33,
-            right: 35,
-        }
-    },
-    {
-        id: 35,
-        objects:[],
-        connections: {
-            up: 22,
-            down: 0,
-            left: 34,
-            right: 24,
-        }
-    },
-
-    {
-        id: 36,
-        objects:[],
-        connections: {
-            up: 24,
-            down: 42,
-            left: 41,
-            right: 37,
-        }
-    },
-    {
-        id: 37,
-        objects:[],
-        connections: {
-            up: 26,
-            down: 0,
-            left: 36,
-            right: 38,
-        }
-    },
-    {
-        id: 38,
-        objects:[],
-        connections: {
-            up: 28,
-            down: 43,
-            left: 37,
-            right: 39,
-        }
-    },
-    {
-        id: 39,
-        objects:[],
-        connections: {
-            up: 30,
-            down: 0,
-            left: 38,
-            right: 40,
-        }
-    },
-    {
-        id: 40,
-        objects:[],
-        connections: {
-            up: 32,
-            down: 44,
-            left: 39,
-            right: 41,
-        }
-    },
-    {
-        id: 41,
-        objects:[],
-        connections: {
-            up: 34,
-            down: 0,
-            left: 40,
-            right: 36,
-        }
-    },
-
-    {
-        id: 42,
-        objects:[],
-        connections: {
-            up: 36,
-            down: 0,
-            left: 44,
-            right: 43,
-        }
-    },
-    {
-        id: 43,
-        objects:[],
-        connections: {
-            up: 38,
-            down: 0,
-            left: 42,
-            right: 44,
-        }
-    },
-    {
-        id: 44,
-        objects:[],
-        connections: {
-            up: 40,
-            down: 0,
-            left: 43,
-            right: 42,
-        }
-    },  
+    { "id": 0, "objects": [] },
+    { "id": 1, "objects": [] },
+    { "id": 2, "objects": [] },
+    { "id": 3, "objects": [] },
+    { "id": 4, "objects": [] },
+    { "id": 5, "objects": [] },
+    { "id": 6, "objects": [] },
+    { "id": 7, "objects": [] },
+    { "id": 8, "objects": [] },
+    { "id": 9, "objects": [] },
+    { "id": 10, "objects": [] },
+    { "id": 11, "objects": [] },
+    { "id": 12, "objects": [] },
+    { "id": 13, "objects": [] },
+    { "id": 14, "objects": [] },
+    { "id": 15, "objects": [] },
+    { "id": 16, "objects": [] },
+    { "id": 17, "objects": [] },
+    { "id": 18, "objects": [] },
+    { "id": 19, "objects": [] },
+    { "id": 20, "objects": [] },
+    { "id": 21, "objects": [] },
+    { "id": 22, "objects": [] },
+    { "id": 23, "objects": [] },
+    { "id": 24, "objects": [] },
+    { "id": 25, "objects": [] },
+    { "id": 26, "objects": [] },
+    { "id": 27, "objects": [] },
+    { "id": 28, "objects": [] },
+    { "id": 29, "objects": [] },
+    { "id": 30, "objects": [] },
+    { "id": 31, "objects": [] },
+    { "id": 32, "objects": [] },
+    { "id": 33, "objects": [] },
+    { "id": 34, "objects": [] },
+    { "id": 35, "objects": [] },
+    { "id": 36, "objects": [] },
+    { "id": 37, "objects": [] },
+    { "id": 38, "objects": [] },
+    { "id": 39, "objects": [] },
+    { "id": 40, "objects": [] },
+    { "id": 41, "objects": [] },
+    { "id": 42, "objects": [] },
+    { "id": 43, "objects": [] },
+    { "id": 44, "objects": [] },
+    { "id": 45, "objects": [] },
+    { "id": 46, "objects": [] },
+    { "id": 47, "objects": [] },
+    { "id": 48, "objects": [] },
+    { "id": 49, "objects": [] },
+    { "id": 50, "objects": [] },
+    { "id": 51, "objects": [] },
+    { "id": 52, "objects": [] },
+    { "id": 53, "objects": [] },
+    { "id": 54, "objects": [] },
+    { "id": 55, "objects": [] },
+    { "id": 56, "objects": [] },
+    { "id": 57, "objects": [] },
+    { "id": 58, "objects": [] },
+    { "id": 59, "objects": [] },
+    { "id": 60, "objects": [] },
+    { "id": 61, "objects": [] },
+    { "id": 62, "objects": [] },
+    { "id": 63, "objects": [] },
+    { "id": 64, "objects": [] },
+    { "id": 65, "objects": [] },
+    { "id": 66, "objects": [] },
+    { "id": 67, "objects": [] },
+    { "id": 68, "objects": [] },
+    { "id": 69, "objects": [] },
+    { "id": 70, "objects": [] },
+    { "id": 71, "objects": [] },
+    { "id": 72, "objects": [] },
+    { "id": 73, "objects": [] },
+    { "id": 74, "objects": [] },
+    { "id": 75, "objects": [] },
+    { "id": 76, "objects": [] },
+    { "id": 77, "objects": [] },
+    { "id": 78, "objects": [] },
+    { "id": 79, "objects": [] },
+    { "id": 80, "objects": [] },
+    { "id": 81, "objects": [] },
+    { "id": 82, "objects": [] },
+    { "id": 83, "objects": [] },
+    { "id": 84, "objects": [] },
+    { "id": 85, "objects": [] },
+    { "id": 86, "objects": [] },
+    { "id": 87, "objects": [] },
+    { "id": 88, "objects": [] },
+    { "id": 89, "objects": [] },
+    { "id": 90, "objects": [] },
+    { "id": 91, "objects": [] },
+    { "id": 92, "objects": [] },
+    { "id": 93, "objects": [] },
+    { "id": 94, "objects": [] },
+    { "id": 95, "objects": [] },
+    { "id": 96, "objects": [] },
+    { "id": 97, "objects": [] },
+    { "id": 98, "objects": [] },
+    { "id": 99, "objects": [] },
+    { "id": 100, "objects": [] },
+    { "id": 101, "objects": [] },
+    { "id": 102, "objects": [] },
+    { "id": 103, "objects": [] },
+    { "id": 104, "objects": [] },
+    { "id": 105, "objects": [] },
+    { "id": 106, "objects": [] },
+    { "id": 107, "objects": [] },
+    { "id": 108, "objects": [] },
+    { "id": 109, "objects": [] },
+    { "id": 110, "objects": [] },
+    { "id": 111, "objects": [] },
+    { "id": 112, "objects": [] },
+    { "id": 113, "objects": [] },
+    { "id": 114, "objects": [] },
+    { "id": 115, "objects": [] },
+    { "id": 116, "objects": [] },
+    { "id": 117, "objects": [] },
+    { "id": 118, "objects": [] },
+    { "id": 119, "objects": [] },
+    { "id": 120, "objects": [] }
 ];
-
-
