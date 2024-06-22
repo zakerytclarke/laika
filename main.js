@@ -81,10 +81,43 @@ async function readPixelsFromPNG(imageUrl) {
 
 const COLOR_TO_OBJECT = {
     // "#f69988":null
-    "#b4b4b4": TILES["moon"],
+    "#b4b4b4": "moon",
     "#464646": TILES["scaffold"]
 }
 
+
+function calculate_texture(pixels, x, y) {
+    const currentTile = pixels[y][x];
+    
+    // Helper function to check if a tile is different from the current tile
+    const isDifferent = (tx, ty) => {
+        return ty >= 0 && ty < pixels.length && tx >= 0 && tx < pixels[0].length && pixels[ty][tx] !== currentTile;
+    };
+
+    const neighbors = {
+        U: isDifferent(x, y - 1) && !isDifferent(x - 1, y) && !isDifferent(x + 1, y) && !isDifferent(x, y + 1),
+        D: isDifferent(x, y + 1) && !isDifferent(x - 1, y) && !isDifferent(x + 1, y) && !isDifferent(x, y - 1),
+        L: isDifferent(x - 1, y) && !isDifferent(x, y - 1) && !isDifferent(x, y + 1) && !isDifferent(x + 1, y),
+        R: isDifferent(x + 1, y) && !isDifferent(x, y - 1) && !isDifferent(x, y + 1) && !isDifferent(x - 1, y),
+        UL: isDifferent(x - 1, y - 1) && !isDifferent(x + 1, y - 1) && !isDifferent(x - 1, y + 1) && !isDifferent(x + 1, y + 1),
+        UR: isDifferent(x + 1, y - 1) && !isDifferent(x - 1, y - 1) && !isDifferent(x + 1, y + 1) && !isDifferent(x - 1, y + 1),
+        DL: isDifferent(x - 1, y + 1) && !isDifferent(x + 1, y + 1) && !isDifferent(x - 1, y - 1) && !isDifferent(x + 1, y - 1),
+        DR: isDifferent(x + 1, y + 1) && !isDifferent(x - 1, y + 1) && !isDifferent(x + 1, y - 1) && !isDifferent(x - 1, y - 1),
+    };
+
+    // Determine which direction should be returned
+    if (neighbors.U) return "U";
+    if (neighbors.D) return "D";
+    if (neighbors.L) return "L";
+    if (neighbors.R) return "R";
+    if (neighbors.UL) return "UL";
+    if (neighbors.UR) return "UR";
+    if (neighbors.DL) return "DL";
+    if (neighbors.DR) return "DR";
+
+    // If all surrounding tiles are the same, return "C"
+    return "C";
+}
 
 async function loadMap() {
     const pixels = await readPixelsFromPNG("./maps/map.png");
@@ -99,6 +132,7 @@ async function loadMap() {
 
             const value = pixels[y][x];
 
+
             // Calculate offset from room start
             const offset_x = x % room_width;
             const offset_y = y % room_height;
@@ -107,6 +141,14 @@ async function loadMap() {
 
             if (value !== "#000000") {
                 if (COLOR_TO_OBJECT[value]) {
+                    //Select correct orientation
+                    let path = COLOR_TO_OBJECT[value];
+                    if(path.indexOf(".")==-1){ // Need to look up texture
+                        path = "./textures/"+COLOR_TO_OBJECT[value] + calculate_texture(pixels, x, y) + ".png";
+                        
+                    }
+                    
+
                     ROOM_OBJECTS[room_index] = (ROOM_OBJECTS[room_index] || []).concat([
                         {
                             type: "block",
@@ -116,7 +158,7 @@ async function loadMap() {
                             height: 1,
                             moveable: false,
                             gravity: false,
-                            tiles: [COLOR_TO_OBJECT[value]],
+                            tiles: [path],
                         }
                     ])
 
@@ -129,6 +171,25 @@ async function loadMap() {
 }
 
 async function preload() {
+    ASSETS['./assets/player.png'] = loadImage('./assets/player.png');
+    ASSETS['./maps/minimap.png'] = loadImage('./maps/minimap.png');
+    ASSETS['./background/spacebackground.png'] = loadImage('./background/spacebackground.png');
+    const textures = [
+        "moonC.png",
+        "moonU.png",
+        "moonL.png",
+        "moonD.png",
+        "moonR.png",
+        "moonUL.png",
+        "moonUR.png",
+        "moonDL.png",
+        "moonDR.png",
+    ];
+    for(var i = 0;i<textures.length;i++){
+        ASSETS[`./textures/${textures[i]}`] = loadImage(`./textures/${textures[i]}`);
+    }
+    
+
     let ROOM_OBJECTS = await loadMap();
 
     // const imageUrls = WORLD.flatMap(room => 
@@ -148,8 +209,7 @@ async function preload() {
         ASSETS[imageUrl] = loadImage(imageUrl);
     }
 
-    ASSETS['./assets/player.png'] = loadImage('./assets/player.png');
-    ASSETS['./maps/minimap.png'] = loadImage('./maps/minimap.png');
+    
     LOADED = true;
 }
 
@@ -299,10 +359,12 @@ function checkRoomChange() {
 
 function displayObjects() {
     fill(255);
+    image(ASSETS['./background/spacebackground.png'], 0, 0, windowWidth, windowHeight);
     drawBody(box);  // Player character
     objects.forEach(drawBody);  // Render stored bodies
     //Render MiniMap
     image(ASSETS['./maps/minimap.png'], windowWidth-300, 0, 300, 300);
+
     fill(128);
 }
 
