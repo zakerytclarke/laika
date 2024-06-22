@@ -282,10 +282,12 @@ function draw() {
 
     // Apply continuous movement based on key state
     let movementForce = 0.015;
-    if (keyState[RIGHT_ARROW]) {
+    let RIGHT = 68;
+    let LEFT = 65;
+    if (keyState[RIGHT] || keyState[RIGHT_ARROW]) {
         Body.applyForce(box, box.position, { x: movementForce, y: 0 });
     }
-    if (keyState[LEFT_ARROW]) {
+    if (keyState[LEFT] || keyState[LEFT_ARROW]) {
         Body.applyForce(box, box.position, { x: -movementForce, y: 0 });
     }
 
@@ -369,8 +371,9 @@ function displayObjects() {
 }
 
 function keyPressed() {
+    let UP = 87;
     keyState[keyCode] = true;
-    if (keyCode === UP_ARROW && onGround()) {
+    if (keyCode === UP_ARROW && onGround() || keyCode === UP && onGround()) { 
         Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.25 * VERTICAL_FORCE_MULTIPLIER });
     }
 }
