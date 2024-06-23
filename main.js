@@ -93,30 +93,44 @@ function calculate_texture(pixels, x, y) {
     const isDifferent = (tx, ty) => {
         return ty >= 0 && ty < pixels.length && tx >= 0 && tx < pixels[0].length && pixels[ty][tx] !== currentTile;
     };
-
-    const neighbors = {
-        U: isDifferent(x, y - 1) && !isDifferent(x - 1, y) && !isDifferent(x + 1, y) && !isDifferent(x, y + 1),
-        D: isDifferent(x, y + 1) && !isDifferent(x - 1, y) && !isDifferent(x + 1, y) && !isDifferent(x, y - 1),
-        L: isDifferent(x - 1, y) && !isDifferent(x, y - 1) && !isDifferent(x, y + 1) && !isDifferent(x + 1, y),
-        R: isDifferent(x + 1, y) && !isDifferent(x, y - 1) && !isDifferent(x, y + 1) && !isDifferent(x - 1, y),
-        UL: isDifferent(x - 1, y - 1) && !isDifferent(x + 1, y - 1) && !isDifferent(x - 1, y + 1) && !isDifferent(x + 1, y + 1),
-        UR: isDifferent(x + 1, y - 1) && !isDifferent(x - 1, y - 1) && !isDifferent(x + 1, y + 1) && !isDifferent(x - 1, y + 1),
-        DL: isDifferent(x - 1, y + 1) && !isDifferent(x + 1, y + 1) && !isDifferent(x - 1, y - 1) && !isDifferent(x + 1, y - 1),
-        DR: isDifferent(x + 1, y + 1) && !isDifferent(x - 1, y + 1) && !isDifferent(x + 1, y - 1) && !isDifferent(x - 1, y - 1),
+    const isSame = (tx, ty) => {
+        return !isDifferent(tx, ty);
     };
 
-    // Determine which direction should be returned
-    if (neighbors.U) return "U";
-    if (neighbors.D) return "D";
-    if (neighbors.L) return "L";
-    if (neighbors.R) return "R";
-    if (neighbors.UL) return "UL";
-    if (neighbors.UR) return "UR";
-    if (neighbors.DL) return "DL";
-    if (neighbors.DR) return "DR";
+    if (isDifferent(x-1, y) && isDifferent(x-1, y-1) && isDifferent(x, y-1)&& isSame(x, y+1) && isSame(x+1, y)) {
+        return "UL";
+    }
+    if (isDifferent(x+1, y) && isDifferent(x+1, y-1) && isDifferent(x, y-1)&& isSame(x, y+1) && isSame(x-1, y)) {
+        return "UR";
+    }
 
-    // If all surrounding tiles are the same, return "C"
+    if (isDifferent(x-1, y) && isDifferent(x-1, y+1) && isDifferent(x, y+1)&& isSame(x, y-1) && isSame(x+1, y)) {
+        return "DL";
+    }
+    if (isDifferent(x+1, y) && isDifferent(x+1, y+1) && isDifferent(x, y+1)&& isSame(x, y-1) && isSame(x-1, y)) {
+        return "DR";
+    }
+
+    if (isDifferent(x, y-1)) {
+        return "U";
+    }
+
+    if (isDifferent(x, y+1)) {
+        return "D";
+    }
+
+    if (isDifferent(x-1, y)) {
+        return "L";
+    }
+
+    if (isDifferent(x+1, y)) {
+        return "R";
+    }
+
+    
+
     return "C";
+
 }
 
 async function loadMap() {
