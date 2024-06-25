@@ -81,8 +81,8 @@ async function readPixelsFromPNG(imageUrl) {
 
 const COLOR_TO_OBJECT = {
     // "#f69988":null
-    "#b4b4b4": "moon",
-    "#464646": TILES["scaffold"]
+    "#b2b2b2": "moon",
+    "#474747": TILES["scaffold"]
 }
 
 
@@ -171,6 +171,7 @@ async function loadMap() {
             const room_index = room_index_y * 24 + room_index_x;
 
             if (value !== "#000000") {
+                console.log(value, COLOR_TO_OBJECT[value])
                 if (COLOR_TO_OBJECT[value]) {
                     //Select correct orientation
                     let path = COLOR_TO_OBJECT[value];
