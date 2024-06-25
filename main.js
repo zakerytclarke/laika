@@ -1,4 +1,4 @@
-const DEBUG = false;
+const DEBUG = true;
 const NUMBER_COLUMNS = 32;
 const NUMBER_ROWS = 18;
 let SETUP = false;
