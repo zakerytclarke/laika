@@ -97,6 +97,23 @@ function calculate_texture(pixels, x, y) {
         return !isDifferent(tx, ty);
     };
 
+
+    if (isSame(x-1, y) && isSame(x, y+1) && isDifferent(x-1, y+1)) {
+        return "DLI";
+    }
+    if (isSame(x+1, y) && isSame(x, y+1) && isDifferent(x+1, y+1)) {
+        return "DRI";
+    }
+    
+
+    if (isSame(x-1, y) && isSame(x, y-1) && isDifferent(x-1, y-1)) {
+        return "ULI";
+    }
+
+    if (isSame(x+1, y) && isSame(x, y-1) && isDifferent(x+1, y-1)) {
+        return "URI";
+    }
+
     if (isDifferent(x-1, y) && isDifferent(x-1, y-1) && isDifferent(x, y-1)&& isSame(x, y+1) && isSame(x+1, y)) {
         return "UL";
     }
@@ -183,10 +200,60 @@ async function loadMap() {
 
     return ROOM_OBJECTS;
 }
+function loadImageToCircle(img, diameter) {
+    let radius = diameter / 2;
+    let centerX = radius;
+    let centerY = radius;
+
+    // Create a new image with the same dimensions as the diameter
+    let resultImg = createImage(diameter, diameter);
+    resultImg.loadPixels();
+    img.loadPixels();
+
+    for (let y = 0; y < diameter; y++) {
+        for (let x = 0; x < diameter; x++) {
+            let dx = x - centerX;
+            let dy = y - centerY;
+            let distance = sqrt(dx * dx + dy * dy);
+
+            if (distance <= radius) {
+                let angle = atan2(dy, dx);
+                // Map the angle to the image width
+                let srcX = constrain(round((angle + PI) / TWO_PI * img.width), 0, img.width - 1);
+                
+                // Map the distance to the image height, inverted
+                let srcY = constrain(round(map(distance, 0, radius, img.height, 0)), 0, img.height - 1);
+
+                let index = (srcY * img.width + srcX) * 4;
+                let r = img.pixels[index];
+                let g = img.pixels[index + 1];
+                let b = img.pixels[index + 2];
+                let a = img.pixels[index + 3];
+
+                let destIndex = (y * diameter + x) * 4;
+                resultImg.pixels[destIndex] = r;
+                resultImg.pixels[destIndex + 1] = g;
+                resultImg.pixels[destIndex + 2] = b;
+                resultImg.pixels[destIndex + 3] = a;
+            } else {
+                // Set transparent for pixels outside the circle
+                let destIndex = (y * diameter + x) * 4;
+                resultImg.pixels[destIndex + 3] = 0;  // Assuming RGBA where A is the alpha channel
+            }
+        }
+    }
+
+    resultImg.updatePixels();
+    return resultImg;
+}
 
 async function preload() {
     ASSETS['./assets/player.png'] = loadImage('./assets/player.png');
-    ASSETS['./maps/minimap.png'] = loadImage('./maps/minimap.png');
+    circularImg = 
+
+    ASSETS['./maps/minimap.png'] = loadImageToCircle(loadImage('./maps/map.png'), 400);
+    console.log(loadImageToCircle(loadImage('./maps/map.png'), 400))
+    // ASSETS['./maps/minimap.png'] = loadImage('./maps/minimap.png');
     ASSETS['./background/spacebackground.png'] = loadImage('./background/spacebackground.png');
     const textures = [
         "moonC.png",
@@ -198,6 +265,10 @@ async function preload() {
         "moonUR.png",
         "moonDL.png",
         "moonDR.png",
+        "moonULI.png",
+        "moonURI.png",
+        "moonDLI.png",
+        "moonDRI.png",
     ];
     for(var i = 0;i<textures.length;i++){
         ASSETS[`./textures/${textures[i]}`] = loadImage(`./textures/${textures[i]}`);
@@ -240,7 +311,7 @@ async function setup() {
     // Create player character as a box
     box = Bodies.rectangle(50, 50, (windowWidth / NUMBER_COLUMNS), (windowHeight / NUMBER_ROWS), { frictionAir: 0.05 * HORIZONTAL_FORCE_MULTIPLIER });
     box.image = './assets/player.png';
-    Matter.Body.setInertia(box, Infinity);
+    // Matter.Body.setInertia(box, Infinity);
     World.add(world, box);
 
     loadRoomObjects(); // Load objects for the initial room
@@ -272,7 +343,7 @@ function loadRoomObjects() {
         let h = (obj.height) * (windowHeight / NUMBER_ROWS);
 
         let newObj = Bodies.rectangle(x, y, w, h, options);
-        Matter.Body.setInertia(newObj, Infinity);
+        // Matter.Body.setInertia(newObj, Infinity);
         newObj.image = obj.image;
         newObj.tiles = obj.tiles;
         newObj.tileWidth = obj.width;
@@ -304,6 +375,7 @@ function draw() {
     if (keyState[LEFT] || keyState[LEFT_ARROW]) {
         Body.applyForce(box, box.position, { x: -movementForce, y: 0 });
     }
+    Body.setAngle(box, 0);
 
     displayObjects(); // Display the player character and other objects
 
@@ -379,8 +451,9 @@ function displayObjects() {
     drawBody(box);  // Player character
     objects.forEach(drawBody);  // Render stored bodies
     //Render MiniMap
-    image(ASSETS['./maps/minimap.png'], windowWidth-300, 0, 300, 300);
 
+    image(ASSETS['./maps/minimap.png'], windowWidth-300, 0, 300, 300);
+    image(ASSETS['./maps/minimap.png'], 0, 0, 300, 300);
     fill(128);
 }
 
