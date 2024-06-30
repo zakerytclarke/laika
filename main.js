@@ -4,6 +4,8 @@ const NUMBER_ROWS = 18;
 let SETUP = false;
 let LOADED = false;
 
+let desiredWidth = 1920;  // Your desired width
+let desiredHeight = 1080; // Your desired height
 
 let HORIZONTAL_FORCE_MULTIPLIER = 1;
 let VERTICAL_FORCE_MULTIPLIER = 1;
@@ -14,9 +16,11 @@ let Engine = Matter.Engine,
     World = Matter.World,
     Bodies = Matter.Bodies,
     Body = Matter.Body,
+    Events = Matter.Events,
     engine, world, box, objects = [];
 
 let keyState = {};  // Tracks the state of the arrow keys
+let isAirborne = false;  // Tracks if the player is in the air
 
 let ASSETS = {};
 
@@ -77,14 +81,10 @@ async function readPixelsFromPNG(imageUrl) {
     }
 }
 
-
-
 const COLOR_TO_OBJECT = {
-    // "#f69988":null
     "#b2b2b2": "moon",
     "#474747": TILES["scaffold"]
 }
-
 
 function calculate_texture(pixels, x, y) {
     const currentTile = pixels[y][x];
@@ -97,57 +97,43 @@ function calculate_texture(pixels, x, y) {
         return !isDifferent(tx, ty);
     };
 
-
     if (isSame(x-1, y) && isSame(x, y+1) && isDifferent(x-1, y+1)) {
         return "DLI";
     }
     if (isSame(x+1, y) && isSame(x, y+1) && isDifferent(x+1, y+1)) {
         return "DRI";
     }
-    
-
     if (isSame(x-1, y) && isSame(x, y-1) && isDifferent(x-1, y-1)) {
         return "ULI";
     }
-
     if (isSame(x+1, y) && isSame(x, y-1) && isDifferent(x+1, y-1)) {
         return "URI";
     }
-
     if (isDifferent(x-1, y) && isDifferent(x-1, y-1) && isDifferent(x, y-1)&& isSame(x, y+1) && isSame(x+1, y)) {
         return "UL";
     }
     if (isDifferent(x+1, y) && isDifferent(x+1, y-1) && isDifferent(x, y-1)&& isSame(x, y+1) && isSame(x-1, y)) {
         return "UR";
     }
-
     if (isDifferent(x-1, y) && isDifferent(x-1, y+1) && isDifferent(x, y+1)&& isSame(x, y-1) && isSame(x+1, y)) {
         return "DL";
     }
     if (isDifferent(x+1, y) && isDifferent(x+1, y+1) && isDifferent(x, y+1)&& isSame(x, y-1) && isSame(x-1, y)) {
         return "DR";
     }
-
     if (isDifferent(x, y-1)) {
         return "U";
     }
-
     if (isDifferent(x, y+1)) {
         return "D";
     }
-
     if (isDifferent(x-1, y)) {
         return "L";
     }
-
     if (isDifferent(x+1, y)) {
         return "R";
     }
-
-    
-
     return "C";
-
 }
 
 async function loadMap() {
@@ -163,7 +149,6 @@ async function loadMap() {
 
             const value = pixels[y][x];
 
-
             // Calculate offset from room start
             const offset_x = x % room_width;
             const offset_y = y % room_height;
@@ -177,9 +162,7 @@ async function loadMap() {
                     let path = COLOR_TO_OBJECT[value];
                     if(path.indexOf(".")==-1){ // Need to look up texture
                         path = "./textures/"+COLOR_TO_OBJECT[value] + calculate_texture(pixels, x, y) + ".png";
-                        
                     }
-                    
 
                     ROOM_OBJECTS[room_index] = (ROOM_OBJECTS[room_index] || []).concat([
                         {
@@ -193,7 +176,6 @@ async function loadMap() {
                             tiles: [path],
                         }
                     ])
-
                 }
             }
         }
@@ -201,6 +183,7 @@ async function loadMap() {
 
     return ROOM_OBJECTS;
 }
+
 function loadImageToCircle(img, diameter) {
     let radius = diameter / 2;
     let centerX = radius;
@@ -250,11 +233,9 @@ function loadImageToCircle(img, diameter) {
 
 async function preload() {
     ASSETS['./assets/player.png'] = loadImage('./assets/player.png');
-    circularImg = 
+    circularImg = loadImageToCircle(loadImage('./maps/map.png'), 400);
 
-    ASSETS['./maps/minimap.png'] = loadImageToCircle(loadImage('./maps/map.png'), 400);
-    console.log(loadImageToCircle(loadImage('./maps/map.png'), 400))
-    // ASSETS['./maps/minimap.png'] = loadImage('./maps/minimap.png');
+    ASSETS['./maps/minimap.png'] = circularImg;
     ASSETS['./background/spacebackground.png'] = loadImage('./background/spacebackground.png');
     const textures = [
         "moonC.png",
@@ -271,16 +252,11 @@ async function preload() {
         "moonDLI.png",
         "moonDRI.png",
     ];
-    for(var i = 0;i<textures.length;i++){
+    for (var i = 0; i < textures.length; i++) {
         ASSETS[`./textures/${textures[i]}`] = loadImage(`./textures/${textures[i]}`);
     }
-    
 
     let ROOM_OBJECTS = await loadMap();
-
-    // const imageUrls = WORLD.flatMap(room => 
-    //     room.objects.filter(object => object.image).map(object => object.image)
-    // )+Object.values(TILES);
 
     for (var i = 0; i < ROOM_OBJECTS.length; i++) {
         if (ROOM_OBJECTS[i]) {
@@ -295,7 +271,6 @@ async function preload() {
         ASSETS[imageUrl] = loadImage(imageUrl);
     }
 
-    
     LOADED = true;
 }
 
@@ -305,15 +280,37 @@ async function setup() {
 
 
     createCanvas(windowWidth, windowHeight);
+
+    let scaleX = windowWidth / desiredWidth;
+    let scaleY = windowHeight / desiredHeight;
+    let scaleToFit = min(scaleX, scaleY);
+    
+    // Translate and scale the canvas
+    translate((windowWidth - desiredWidth * scaleToFit) / 2, (windowHeight - desiredHeight * scaleToFit) / 2);
+    scale(scaleToFit);
+
     engine = Engine.create();
     world = engine.world;
     engine.world.gravity.y = 2.5 * VERTICAL_FORCE_MULTIPLIER;  // Set gravity strength (default is 1)
 
     // Create player character as a box
-    box = Bodies.rectangle(50, 50, (windowWidth / NUMBER_COLUMNS), (windowHeight / NUMBER_ROWS), { frictionAir: 0.05 * HORIZONTAL_FORCE_MULTIPLIER });
+    box = Bodies.rectangle(windowWidth/2, windowHeight/2, (windowWidth / NUMBER_COLUMNS), (windowHeight / NUMBER_ROWS), { frictionAir: 0.05 * HORIZONTAL_FORCE_MULTIPLIER });
     box.image = './assets/player.png';
     // Matter.Body.setInertia(box, Infinity);
     World.add(world, box);
+
+    // Add collision event listener
+    Events.on(engine, 'collisionStart', (event) => {
+        const pairs = event.pairs;
+        for (let pair of pairs) {
+            if (pair.bodyA === box || pair.bodyB === box) {
+                const otherBody = pair.bodyA === box ? pair.bodyB : pair.bodyA;
+                if (isOnTop(box, otherBody)) {
+                    isAirborne = false;
+                }
+            }
+        }
+    });
 
     loadRoomObjects(); // Load objects for the initial room
 }
@@ -337,9 +334,6 @@ function loadRoomObjects() {
         let x = (((obj.x + 0.5 * (obj.width) + 0.5) * (windowWidth / NUMBER_COLUMNS)) - (windowWidth / NUMBER_COLUMNS / 2));
         let y = ((obj.y + 0.5 * (obj.height)) * (windowHeight / NUMBER_ROWS));
 
-
-
-
         let w = (obj.width) * (windowWidth / NUMBER_COLUMNS);
         let h = (obj.height) * (windowHeight / NUMBER_ROWS);
 
@@ -358,7 +352,7 @@ function draw() {
     if (!LOADED) {
         return;
     }
-    if(!SETUP){
+    if (!SETUP) {
         setup();
         SETUP = true;
     }
@@ -366,8 +360,9 @@ function draw() {
     text(ROOM, 50, 50);
     Engine.update(engine);
 
+
     // Apply continuous movement based on key state
-    let movementForce = 0.015;
+    let movementForce = 0.01;
     let RIGHT = 68;
     let LEFT = 65;
     if (keyState[RIGHT] || keyState[RIGHT_ARROW]) {
@@ -411,7 +406,6 @@ function nextRoomIndex(currentIndex, direction) {
     return currentIndex;
 }
   
-  
 function checkRoomChange() {
     let changed = false;
 
@@ -432,8 +426,6 @@ function checkRoomChange() {
     }
 
     if (changed) {
-        // const newRoom = WORLD[ROOM].connections[changed];
-
         let newRoom = nextRoomIndex(ROOM, changed);
         if(WORLD[ROOM].connections && WORLD[ROOM].connections[changed]){ // Overwrite default 
             console.log(WORLD[ROOM].connections);
@@ -461,8 +453,9 @@ function displayObjects() {
 function keyPressed() {
     let UP = 87;
     keyState[keyCode] = true;
-    if (keyCode === UP_ARROW && onGround() || keyCode === UP && onGround()) { 
+    if ((keyCode === UP_ARROW || keyCode === UP) && !isAirborne) { 
         Body.applyForce(box, { x: box.position.x, y: box.position.y }, { x: 0, y: -0.25 * VERTICAL_FORCE_MULTIPLIER });
+        isAirborne = true;
     }
 }
 
@@ -470,9 +463,8 @@ function keyReleased() {
     keyState[keyCode] = false;
 }
 
-function onGround() {
-    // Placeholder for ground check logic
-    return true;  // Assume the player is on the ground for this example
+function isOnTop(player, other) {
+    return player.position.y < other.position.y && Math.abs(player.position.x - other.position.x) < (other.bounds.max.x - other.bounds.min.x) / 2;
 }
 
 function drawBody(body) {
